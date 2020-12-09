@@ -15,7 +15,7 @@ dir.create(file.path(dir_results,"observations"), showWarnings = F, recursive = 
 
 # Stations ----------------------------------------------------------------
 
-stations <- rcrea::stations(city=cities, source="eea", with_metadata = T)
+stations <- rcrea::stations(city=cities, source="eea", with_metadata = T, keep_with_measurements_only = T)
 stations %>%
   arrange(city_name) %>%
   select(-c(timezone,type)) %>%
