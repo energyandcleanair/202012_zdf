@@ -17,6 +17,8 @@ dir.create(file.path(dir_results,"observations"), showWarnings = F, recursive = 
 
 stations <- rcrea::stations(city=cities, source="eea", with_metadata = T)
 stations %>%
+  arrange(city_name) %>%
+  select(-c(timezone,type)) %>%
   write.csv(file=file.path(dir_results, "stations", "stations.csv"), row.names = F)
 
 
